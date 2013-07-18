@@ -1,0 +1,7 @@
+C:\Users\tyoung\Documents\GitHub\HexCode\HexCodeTests\obj\Debug\HexCodeTests.csprojResolveAssemblyReference.cache
+C:\Users\tyoung\Documents\GitHub\HexCode\HexCodeTests\bin\Debug\HexCodeTests.dll
+C:\Users\tyoung\Documents\GitHub\HexCode\HexCodeTests\bin\Debug\HexCodeTests.pdb
+C:\Users\tyoung\Documents\GitHub\HexCode\HexCodeTests\bin\Debug\HexCode.exe
+C:\Users\tyoung\Documents\GitHub\HexCode\HexCodeTests\bin\Debug\HexCode.pdb
+C:\Users\tyoung\Documents\GitHub\HexCode\HexCodeTests\obj\Debug\HexCodeTests.dll
+C:\Users\tyoung\Documents\GitHub\HexCode\HexCodeTests\obj\Debug\HexCodeTests.pdb

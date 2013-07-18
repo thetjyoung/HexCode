@@ -14,43 +14,45 @@ namespace HexCode
 
         static void Main(string[] args)
         {
-            var codes = new List<string>();
+            var analyzer = new CodeLogic(Mappings);
             var stopWatch = new Stopwatch();
-            Console.WriteLine("Input Codes For Analysis:\n");
+            Console.WriteLine("Input A Message For Analysis:\n");
+            string input = Console.ReadLine()
+                .ToLower()
+                .Trim();
 
-            while (true)
+            stopWatch.Start();
+            var codes = analyzer.Encode(input);
+            Console.WriteLine("{0,-12}{1,8}","Code","Decode Permutations");
+            Console.WriteLine("-------------------------------");
+            foreach (var code in codes)
             {
-                string input = Console.ReadLine().ToLower().Trim();
-                if (input == "0")
-                {
-                    Console.WriteLine("\nCode Analysis:\n");
-                    stopWatch.Start();
-                    foreach (var code in codes)
-                    { Console.WriteLine(AnalyzeCode(code, 0)); }
-                    stopWatch.Stop();
-                    TimeSpan ts = stopWatch.Elapsed;
-                    Console.WriteLine("Analysis Completed in: {0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
-                    break;
-                }
-                codes.Add(input);
+                var totalCount = analyzer.AnalyzeCode(code, 0);
+                Console.WriteLine("{0,-12}{1,8}", code, totalCount);
             }
+            stopWatch.Stop();
+            TimeSpan ts = stopWatch.Elapsed;
+            Console.WriteLine("\nAnalysis Completed in: {0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+
+            //while (true)
+            //{
+            //    string input = Console.ReadLine().ToLower().Trim();
+            //    if (input == "0")
+            //    {
+            //        Console.WriteLine("\nCode Analysis:\n");
+            //        stopWatch.Start();
+            //        foreach (var code in codes)
+            //        { Console.WriteLine(analyzer.AnalyzeCode(code, 0)); }
+            //        stopWatch.Stop();
+            //        TimeSpan ts = stopWatch.Elapsed;
+            //        Console.WriteLine("Analysis Completed in: {0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+            //        break;
+            //    }
+            //    codes.Add(input);
+            //}
 
             Console.WriteLine("\nPress Any Key To Exit....");
             Console.ReadKey();
-        }
-
-        private static int AnalyzeCode(string code, int index)
-        {
-            var retval = 0;
-            //check 1 character code: if end of code increment count by returning 1 else recurse
-            if (Mappings.ContainsKey(code.Substring(index, 1)))
-            { retval += index + 1 < code.Length ? AnalyzeCode(code, index + 1) : 1; }
-
-            //check 2 character code: if end of code increment count by returning 1 else recurse
-            if (index + 1 < code.Length && Mappings.ContainsKey(code.Substring(index, 2)))
-            { retval += index + 2 < code.Length ? AnalyzeCode(code, index + 2) : 1; }
-
-            return retval;
         }
     }
 }
