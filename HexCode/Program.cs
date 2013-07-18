@@ -47,11 +47,9 @@ namespace HexCode
             { retval += index + 1 < code.Length ? AnalyzeCode(code, index + 1) : 1; }
 
             //check 2 character code: if end of code increment count by returning 1 else recurse
-            if (index + 1 < code.Length)
-            {
-                if (Mappings.ContainsKey(code.Substring(index, 2)))
-                { retval += index + 2 < code.Length ? AnalyzeCode(code, index + 2) : 1; }
-            }
+            if (index + 1 < code.Length && Mappings.ContainsKey(code.Substring(index, 2)))
+            { retval += index + 2 < code.Length ? AnalyzeCode(code, index + 2) : 1; }
+
             return retval;
         }
     }
