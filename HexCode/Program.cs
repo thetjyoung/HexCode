@@ -42,10 +42,11 @@ namespace HexCode
         {
             var codes = new List<string>();
             Console.WriteLine("Input Codes For Analysis:\n");
+
             while (true)
             {
-                string tmp = Console.ReadLine().ToLower().Trim();
-                if (tmp == "0")
+                string input = Console.ReadLine().ToLower().Trim();
+                if (input == "0")
                 {
                     Console.WriteLine("\nCode Analysis:\n");
                     foreach (var code in codes)
@@ -55,7 +56,7 @@ namespace HexCode
                     }
                     break;
                 }
-                codes.Add(tmp);
+                codes.Add(input);
             }
 
             Console.WriteLine("\nPress Enter To Exit....");
@@ -64,33 +65,20 @@ namespace HexCode
 
         private static int AnalyzeCode(string code, int index)
         {
-            int retval = 0;
-            string tmp1 = code[index].ToString();
-            if (Mappings.ContainsKey(tmp1))
+            var retval = 0;
+            //check 1 character code
+            if (Mappings.ContainsKey(code.Substring(index, 1)))
             {
-                if (index + 1 < code.Length)
-                {
-                    retval += AnalyzeCode(code, index + 1);
-                }
-                else
-                {
-                    retval++;
-                }
+                //if end of code increment count by returning 1 else recurse
+                retval += index + 1 < code.Length ? AnalyzeCode(code, index + 1) : 1;
             }
-
+            //check 2 character code
             if (index + 1 < code.Length)
             {
-                string tmp2 = tmp1 + code[index + 1];
-                if (Mappings.ContainsKey(tmp2))
+                if (Mappings.ContainsKey(code.Substring(index, 2)))
                 {
-                    if (index + 2 < code.Length)
-                    {
-                        retval += AnalyzeCode(code, index + 2);
-                    }
-                    else
-                    {
-                        retval++;
-                    }
+                    //if end of code increment count by returning 1 else recurse
+                    retval += index + 2 < code.Length ? AnalyzeCode(code, index + 2) : 1;
                 }
             }
             return retval;

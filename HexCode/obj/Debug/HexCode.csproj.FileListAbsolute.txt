@@ -4,3 +4,9 @@ c:\users\tyoung\documents\visual studio 2012\Projects\HexCode\HexCode\bin\Debug\
 c:\users\tyoung\documents\visual studio 2012\Projects\HexCode\HexCode\obj\Debug\HexCode.csprojResolveAssemblyReference.cache
 c:\users\tyoung\documents\visual studio 2012\Projects\HexCode\HexCode\obj\Debug\HexCode.exe
 c:\users\tyoung\documents\visual studio 2012\Projects\HexCode\HexCode\obj\Debug\HexCode.pdb
+C:\Users\tyoung\Documents\GitHub\HexCode\HexCode\bin\Debug\HexCode.exe.config
+C:\Users\tyoung\Documents\GitHub\HexCode\HexCode\obj\Debug\HexCode.exe
+C:\Users\tyoung\Documents\GitHub\HexCode\HexCode\obj\Debug\HexCode.pdb
+C:\Users\tyoung\Documents\GitHub\HexCode\HexCode\bin\Debug\HexCode.exe
+C:\Users\tyoung\Documents\GitHub\HexCode\HexCode\bin\Debug\HexCode.pdb
+C:\Users\tyoung\Documents\GitHub\HexCode\HexCode\obj\Debug\HexCode.csprojResolveAssemblyReference.cache
