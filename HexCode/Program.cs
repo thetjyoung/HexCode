@@ -1,42 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HexCode
 {
     class Program
     {
-        private static Dictionary<string,string> Mappings = new Dictionary<string, string>()
+        private static readonly Dictionary<string,string> Mappings = new Dictionary<string, string>()
             {
-                {"1", "a"},
-                {"2", "b"},
-                {"3", "c"},
-                {"4", "d"},
-                {"5", "e"},
-                {"6", "f"},
-                {"7", "g"},
-                {"8", "h"},
-                {"9", "i"},
-                {"a", "j"},
-                {"b", "k"},
-                {"c", "l"},
-                {"d", "m"},
-                {"e", "n"},
-                {"f", "o"},
-                {"10", "p"},
-                {"11", "q"},
-                {"12", "r"},
-                {"13", "s"},
-                {"14", "t"},
-                {"15", "u"},
-                {"16", "v"},
-                {"17", "w"},
-                {"18", "x"},
-                {"19", "y"},
-                {"1a", "z"}
+                {"1", "a"}, {"2", "b"}, {"3", "c"}, {"4", "d"}, {"5", "e"}, {"6", "f"}, {"7", "g"}, {"8", "h"}, {"9", "i"}, {"a", "j"}, {"b", "k"}, {"c", "l"}, {"d", "m"}, {"e", "n"},
+                {"f", "o"}, {"10", "p"}, {"11", "q"}, {"12", "r"}, {"13", "s"}, {"14", "t"}, {"15", "u"}, {"16", "v"}, {"17", "w"}, {"18", "x"}, {"19", "y"}, {"1a", "z"}
             };
         static void Main(string[] args)
         {
@@ -51,16 +23,15 @@ namespace HexCode
                     Console.WriteLine("\nCode Analysis:\n");
                     foreach (var code in codes)
                     {
-                        int totalPermutations = AnalyzeCode(code, 0);
-                        Console.WriteLine(totalPermutations);
+                        Console.WriteLine(AnalyzeCode(code, 0));
                     }
                     break;
                 }
                 codes.Add(input);
             }
 
-            Console.WriteLine("\nPress Enter To Exit....");
-            Console.Read();
+            Console.WriteLine("\nPress Any Key To Exit....");
+            Console.ReadKey();
         }
 
         private static int AnalyzeCode(string code, int index)
