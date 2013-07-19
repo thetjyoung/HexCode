@@ -29,7 +29,7 @@ namespace HexCodeTests
 
             for (int i = 0; i < CodedMessage.Count; i++)
             {
-                int tmpVal = analyzer.AnalyzeCode(CodedMessage[i], 0);
+                int tmpVal = analyzer.AnalyzeCode(CodedMessage[i]);
                 Assert.AreEqual(Permutations[i], tmpVal);
             }
         }
@@ -45,6 +45,14 @@ namespace HexCodeTests
             {
                 Assert.AreEqual(CodedMessage[i], codes[i]);   
             }
+        }
+
+        [TestMethod]
+        public void TestDecoding()
+        {
+            var analyzer = new CodeLogic(Mappings);
+            var result = analyzer.Decode("111593b");
+            Assert.AreEqual("quick", result);
         }
     }
 }

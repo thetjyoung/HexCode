@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace HexCode
 {
@@ -20,14 +21,15 @@ namespace HexCode
             string input = Console.ReadLine()
                 .ToLower()
                 .Trim();
+            input = Regex.Replace(input, @"[^\w\s]", "");
 
             stopWatch.Start();
             var codes = analyzer.Encode(input);
-            Console.WriteLine("{0,-12}{1,8}","Code","Decode Permutations");
+            Console.WriteLine("\n{0,-12}{1,8}","Code","Decode Permutations");
             Console.WriteLine("-------------------------------");
             foreach (var code in codes)
             {
-                var totalCount = analyzer.AnalyzeCode(code, 0);
+                var totalCount = analyzer.AnalyzeCode(code);
                 Console.WriteLine("{0,-12}{1,8}", code, totalCount);
             }
             stopWatch.Stop();
@@ -51,7 +53,13 @@ namespace HexCode
             //    codes.Add(input);
             //}
 
-            Console.WriteLine("\nPress Any Key To Exit....");
+            Console.WriteLine("\nAttempted Decode:");
+            foreach (var code in codes)
+            {
+                Console.Write(analyzer.Decode(code) + " ");
+            }
+
+            Console.WriteLine("\n\nPress Any Key To Exit....");
             Console.ReadKey();
         }
     }
