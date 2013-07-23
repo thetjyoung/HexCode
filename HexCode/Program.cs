@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
 namespace HexCode
 {
+    [ExcludeFromCodeCoverage]
     class Program
     {
         private static readonly Dictionary<string,string> Mappings = new Dictionary<string, string>()
@@ -12,7 +14,7 @@ namespace HexCode
                 {"1", "a"}, {"2", "b"}, {"3", "c"}, {"4", "d"}, {"5", "e"}, {"6", "f"}, {"7", "g"}, {"8", "h"}, {"9", "i"}, {"a", "j"}, {"b", "k"}, {"c", "l"}, {"d", "m"}, {"e", "n"},
                 {"f", "o"}, {"10", "p"}, {"11", "q"}, {"12", "r"}, {"13", "s"}, {"14", "t"}, {"15", "u"}, {"16", "v"}, {"17", "w"}, {"18", "x"}, {"19", "y"}, {"1a", "z"}
             };
-
+        
         static void Main(string[] args)
         {
             var analyzer = new CodeLogic(Mappings);

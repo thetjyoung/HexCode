@@ -70,6 +70,7 @@ namespace HexCode
                 catch (Exception ex)
                 {
                     Console.WriteLine("Invalid input:" + ex.Message);
+                    throw;
                 }
             }
             return codes;
